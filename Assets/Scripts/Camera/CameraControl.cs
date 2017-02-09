@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour {
 
-    Camera cam;
+    //Camera cam;
 
 	// Initializes lookat to world centre
 	void Start () {

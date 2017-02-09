@@ -5,6 +5,14 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+
+    /*  Stupid byproduct list:
+     * Making players be able to hurt each other by physically touching will break result in bad shit 
+     * except I make every object destroy itself (currrently Destroy(other) on bullets)
+     * 
+     * Players are not killable! They have health and are therefore have to selfdestruct
+     */
+
     //Settings
     public float moveTime = 1;
     public float rotateTime = 0.2f;
@@ -12,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float rotateDegrees = 90;
     public float delayTime = 1;
     public float waitAfterShootingSeconds = 0.1f;
+    public int health = 1;
 
     //Dependancies
     public GameObject bullet;
@@ -19,6 +28,7 @@ public class PlayerController : MonoBehaviour
     //Variables
         //End of barrel
     private GameObject projectileSpawn;
+    //private int projectileLayer;
 
 
 
@@ -38,6 +48,10 @@ public class PlayerController : MonoBehaviour
 
     private bool moving = false;
     private bool isCollision = false;
+    private bool dieing = false;
+
+    
+    
 
 
     public void Start()
@@ -47,6 +61,15 @@ public class PlayerController : MonoBehaviour
         methodQueue = new Queue<Func<IEnumerator>>();
         directionQueue = new Queue<Vector3>();
         projectileSpawn = transform.FindChild("Gun").FindChild("ProjectileSpawn").gameObject;
+    }
+
+    public void Update()
+    {
+        if(health == 0)
+        {
+            IEnumerator die = Die();
+            StartCoroutine(die);
+        }
     }
 
     public void Forward()
@@ -104,7 +127,7 @@ public class PlayerController : MonoBehaviour
         Quaternion origin = transform.rotation;
         Quaternion destination = origin * Quaternion.AngleAxis(rotateDegrees * activeDirectionQueue.Dequeue().x , Vector3.up);
 
-        while (Quaternion.Angle(destination, transform.rotation) > 2)
+        while (Quaternion.Angle(destination, transform.rotation) > 2 && !dieing)
         {
             transform.rotation = Quaternion.Slerp(origin, destination, ((Time.time - startTime) / moveTime));
             yield return null;
@@ -120,13 +143,13 @@ public class PlayerController : MonoBehaviour
         Vector3 origin = transform.position;
         Vector3 destination = transform.position + activeDirectionQueue.Dequeue();
 
-        while (0.01f < Vector3.Distance(transform.position, destination) && !isCollision)
+        while (0.01f < Vector3.Distance(transform.position, destination) && !isCollision && !dieing)
         {
             transform.position = Vector3.Lerp(origin, destination, ((Time.time - startTime) / moveTime));
             yield return null;
         }
 
-        if (isCollision)
+        if (isCollision && !dieing)
         {
             Vector3 collisionPos = transform.position;
 
@@ -185,6 +208,11 @@ public class PlayerController : MonoBehaviour
             {
                 break;
             }
+
+            if (dieing)
+            {
+                break;
+            }
             
             //"Lerping" Coroutines shall set to false on exit,
             //other coroutines shall set to false immediately (I.E. Shoot) 
@@ -207,13 +235,39 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == this.gameObject.layer)
+
+        if (other.gameObject.layer == this.gameObject.layer)
         {
             if (moving)
             {
                 isCollision = true;
             }
         }
+
+
+        DamageDealer dDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (dDealer != null)
+        {
+            health -= dDealer.DealDamage();
+            
+        }
+
+        Component killer = other.gameObject.GetComponent(typeof(IKillable));
+        if(killer != null)
+        {
+            IKillable killable = killer as IKillable;
+            killable.Kill();
+        }
+    }
+
+    private IEnumerator Die()
+    {
+        while (lerpCoroutineExecuting)
+        {
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
     }
 
 }
