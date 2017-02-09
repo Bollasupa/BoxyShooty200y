@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 
 
     private PlayerController controllerA;
+    private PlayerController controllerB;
     //GameObject playerB;
 
     //MoveManager aManager;
@@ -22,11 +23,16 @@ public class InputManager : MonoBehaviour
     {
         GameObject playerA = GameObject.FindWithTag("Player1");
         controllerA = playerA.GetComponent<PlayerController>();
+
+
+        GameObject playerB = GameObject.FindWithTag("Player2");
+        controllerB = playerB.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //player 1 controls
         if (Input.GetKeyDown("w"))
         {
             controllerA.Forward();
@@ -43,7 +49,7 @@ public class InputManager : MonoBehaviour
         {
             controllerA.Right();
         }
-        if (Input.GetKeyDown("return"))
+        if (Input.GetKeyDown("space"))
         {
             controllerA.Execute();
         }
@@ -55,8 +61,41 @@ public class InputManager : MonoBehaviour
         {
             controllerA.RotateRight();
         }
+        if (Input.GetKeyDown("x"))
+        {
+            controllerA.Shoot();
+        }
 
 
 
+        //player2 controls
+        if (Input.GetKeyDown("i"))
+        {
+            controllerB.Forward();
+        }
+        if (Input.GetKeyDown("k"))
+        {
+            controllerB.Backwards();
+        }
+        if (Input.GetKeyDown("j"))
+        {
+            controllerB.Left();
+        }
+        if (Input.GetKeyDown("l"))
+        {
+            controllerB.Right();
+        }
+        if (Input.GetKeyDown("return"))
+        {
+            controllerB.Execute();
+        }
+        if (Input.GetKeyDown("u"))
+        {
+            controllerA.RotateLeft();
+        }
+        if (Input.GetKeyDown("o"))
+        {
+            controllerA.RotateRight();
+        }
     }
 }

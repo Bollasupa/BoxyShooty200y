@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
     public GameObject player;
 
     private GameObject player1;
+    private GameObject player2;
 
 
 	// Use this for initialization
@@ -18,16 +19,10 @@ public class GameController : MonoBehaviour {
         player1 = SpawnOnGrid(player, spawnTilePlayer1, Quaternion.Euler(0,90,0));
         player1.tag = "Player1";
 
-        //GameObject player2 = SpawnOnGrid(player, spawnTilePlayer2, Quaternion.Euler(0, -90, 0));
-        //player2.tag = "Unit";
+        player2 = SpawnOnGrid(player, spawnTilePlayer2, Quaternion.Euler(0, -90, 0));
+        player2.tag = "Player2";
     }
 
-    //private void Start()
-    //{
-    //    manager.controllerA = player1.GetComponent<TestPlayerController>();
-    //}
-
-    //Spawn on grid by discrete grid coords
     GameObject SpawnOnGrid(GameObject obj, Vector3 vec, Quaternion rot)
     {
         vec.x += 0.5f;
