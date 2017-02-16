@@ -85,6 +85,9 @@
     <Compile Include="Assets\Scripts\Singletons\GameController.cs" />
     <Compile Include="Assets\Scripts\Singletons\InputManager.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\The_Texture_Lab\TL_Prototype_Textures_Pack\Documentation.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

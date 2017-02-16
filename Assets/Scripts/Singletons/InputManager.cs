@@ -91,11 +91,15 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyDown("u"))
         {
-            controllerA.RotateLeft();
+            controllerB.RotateLeft();
         }
         if (Input.GetKeyDown("o"))
         {
-            controllerA.RotateRight();
+            controllerB.RotateRight();
+        }
+        if (Input.GetKeyDown(","))
+        {
+            controllerB.Shoot();
         }
     }
 }
