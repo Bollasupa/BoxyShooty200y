@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\Menu\Selectah.cs" />
     <Compile Include="Assets\Scripts\ModularBehaviours\DamageDealer.cs" />
     <Compile Include="Assets\Scripts\ModularBehaviours\IKillable\IKillable.cs" />
     <Compile Include="Assets\Scripts\ModularBehaviours\IKillable\KillBullet.cs" />

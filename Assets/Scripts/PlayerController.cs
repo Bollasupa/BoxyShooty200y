@@ -20,10 +20,15 @@ public class PlayerController : MonoBehaviour
     public float rotateDegrees = 90;
     public float delayTime = 1;
     public float waitAfterShootingSeconds = 0.1f;
-    public int health = 1;
+    public int defaultHealth = 1;
+    private int health;
+
+    public AudioSource explosion;
+    public AudioSource shoootySound;
 
     //Dependancies
     public GameObject bullet;
+    public GameController gameController;
 
     //Variables
         //End of barrel
@@ -61,6 +66,9 @@ public class PlayerController : MonoBehaviour
         methodQueue = new Queue<Func<IEnumerator>>();
         directionQueue = new Queue<Vector3>();
         projectileSpawn = transform.FindChild("Gun").FindChild("ProjectileSpawn").gameObject;
+
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        health = defaultHealth;
     }
 
     public void Update()
@@ -117,6 +125,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator ShootBullet()
     {
         Instantiate(bullet, projectileSpawn.transform.position, transform.rotation);
+        shoootySound.Play();
         yield return new WaitForSeconds(waitAfterShootingSeconds);
         lerpCoroutineExecuting = false;
     }
@@ -262,12 +271,17 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Die()
     {
+        
         while (lerpCoroutineExecuting)
         {
             yield return null;
         }
-
-        Destroy(this.gameObject);
+        explosion.Play();
+        yield return new WaitForSeconds(0.6f);
+        this.gameObject.SetActive(false);
+        gameController.RoundOver();
     }
+
+
 
 }

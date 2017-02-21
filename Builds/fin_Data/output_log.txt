@@ -1,0 +1,69 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 950M (ID=0x139a)
+    Vendor:   NVIDIA
+    VRAM:     2018 MB
+    Driver:   20.19.15.4549
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.028 seconds
+Platform assembly: C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Unity\BoxyShooty2000y\Builds\fin_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.525403 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 3c44 -> priority: 1 
+Clickidy click
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.159878 ms
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 2126.
+Total: 0.720400 ms (FindLiveObjects: 0.107675 ms CreateObjectMapping: 0.036319 ms MarkObjects: 0.260643 ms  DeleteObjects: 0.314480 ms)
+
+HERE
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 11.964374 ms
+
+Unloading 71 unused Assets to reduce memory usage. Loaded Objects now: 612.
+Total: 1.301079 ms (FindLiveObjects: 0.046146 ms CreateObjectMapping: 0.030764 ms MarkObjects: 0.220478 ms  DeleteObjects: 1.003262 ms)
+
+Clickidy click
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.128029 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 2126.
+Total: 1.111365 ms (FindLiveObjects: 0.188432 ms CreateObjectMapping: 0.064092 ms MarkObjects: 0.366182 ms  DeleteObjects: 0.491376 ms)
+
+HERE
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 19.088902 ms
+
+Unloading 71 unused Assets to reduce memory usage. Loaded Objects now: 612.
+Total: 1.485665 ms (FindLiveObjects: 0.048710 ms CreateObjectMapping: 0.040591 ms MarkObjects: 0.276452 ms  DeleteObjects: 1.119056 ms)
+

@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
 
-
-    private PlayerController controllerA;
-    private PlayerController controllerB;
+    public bool listeningForInput = false;
+    public PlayerController controllerA;
+    public PlayerController controllerB;
     //GameObject playerB;
 
     //MoveManager aManager;
@@ -19,19 +20,20 @@ public class InputManager : MonoBehaviour
         //bManager = new MoveManager(playerB);
     }
 
-    void Start()
-    {
-        GameObject playerA = GameObject.FindWithTag("Player1");
-        controllerA = playerA.GetComponent<PlayerController>();
-
-
-        GameObject playerB = GameObject.FindWithTag("Player2");
-        controllerB = playerB.GetComponent<PlayerController>();
-    }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("escape"))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        if (!listeningForInput)
+        {
+            return;
+        }
+
         //player 1 controls
         if (Input.GetKeyDown("w"))
         {
